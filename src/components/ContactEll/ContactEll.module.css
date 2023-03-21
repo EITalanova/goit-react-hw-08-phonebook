@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgb(240, 6, 6);
+  outline: none;
+  border: 0.1px solid black;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  
+  margin-left: 15px;
+  cursor: pointer;
+}
