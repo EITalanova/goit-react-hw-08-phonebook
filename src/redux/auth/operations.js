@@ -21,7 +21,7 @@ export const singnup = createAsyncThunk(
   }
 );
 
-export const logouot = createAsyncThunk('auth/logout', async (_, thunkApi) => {
+export const logout = createAsyncThunk('auth/logout', async (_, thunkApi) => {
   try {
     await axios.post('/users/logout');
     clearToken();
