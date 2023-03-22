@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchContacts, addContact, deleteContact } from './functionsContacts';
+import { fetchContacts, addContact, deleteContact } from './auth/operations';
 
 const initialState = {
   contacts: {

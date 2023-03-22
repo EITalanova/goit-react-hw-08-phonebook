@@ -4,7 +4,7 @@ import ContactList from './ContactList/ContactList';
 import ContactEll from './ContactEll/ContactEll';
 import Filter from './Filter/Filter';
 import { useSelector } from 'react-redux';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { selectError, selectIsLoading } from 'redux/auth/selectors';
 
 function App() {
   const isLoading = useSelector(selectIsLoading);

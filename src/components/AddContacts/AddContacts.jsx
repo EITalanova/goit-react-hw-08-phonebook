@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addContact } from 'redux/functionsContacts';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/auth/operations';
+import { selectContacts } from 'redux/auth/selectors';
 
 import css from './AddContacts.module.css';
 

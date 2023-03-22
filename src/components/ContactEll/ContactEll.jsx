@@ -4,8 +4,8 @@ import {
   selectContacts,
   selectFilter,
   selectVisibleContacts,
-} from 'redux/selectors';
-import { fetchContacts, deleteContact } from 'redux/functionsContacts';
+} from 'redux/auth/selectors';
+import { fetchContacts, deleteContact } from 'redux/auth/operations';
 
 import css from './ContactEll.module.css';
 
