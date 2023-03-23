@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchContacts, addContact, deleteContact } from './auth/operations';
+import { fetchContacts, addContact, deleteContact,updateContact } from './operations';
 
 const initialState = {
   contacts: {
@@ -52,7 +52,13 @@ const contactsSlice = createSlice({
         state.contacts.items.splice(index, 1);
         alert(`${action.payload.name} was deleted from your contacts.`);
       })
-      .addCase(deleteContact.rejected, handleRejected);
+      .addCase(deleteContact.rejected, handleRejected)
+      .addCase(updateContact.pending, handlePending)
+      .addCase(updateContact.fulfilled, (state, action) => {
+        state.contacts.isLoading = false;
+        state.error = null;
+        alert(`Changes have been successfully saved.`);
+    })
   },
 });
 
