@@ -1,6 +1,6 @@
 import { SignUpForm } from 'components/SignUpForm/SignUpForm';
 
-export const SingUpPage = () => {
+const SingUpPage = () => {
   return (
     <div>
       <title>Sign Up</title>
@@ -8,3 +8,5 @@ export const SingUpPage = () => {
     </div>
   );
 };
+
+export default SingUpPage;

@@ -9,7 +9,11 @@ import {
   selectRefreshing,
 } from 'redux/auth/selectors';
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import { refreshUser } from 'redux/auth/operations';
+import { ContactPage } from 'pages/ContactsPage/ContactsPage';
+import SingUpPage from 'pages/SingUpPage/SingUpPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,14 +33,38 @@ function App() {
         color: '#010101',
       }}
     >
-      <h1>Phonebook</h1>
-      <AddContacts />
-      <h2>Contacts</h2>
-      <Filter />
-      {isLoading && !error && <div> Loading... </div>}
-      <ContactList>
-        <ContactEll />
-      </ContactList>
+      {!isRefreshing && (
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<LoginPage />}
+                />
+              }
+            />
+
+            <Route
+              path="contacts"
+              element={
+                <PrivateRoute redirectTo="/" component={<ContactsPage />} />
+              }
+            />
+            <Route
+              path="signup"
+              element={
+                <RestrictedRoute
+                  redirectTo="/contacts"
+                  component={<SingUpPage />}
+                />
+              }
+            />
+          </Route>
+        </Routes>
+      )}
+
     </div>
   );
 }

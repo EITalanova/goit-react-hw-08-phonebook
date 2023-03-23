@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { updateContact } from 'redux/contacts/operations';
 import { fetchContacts } from 'redux/contacts/operations';
 
-export const ContactEll = ({ id, name, number }) => {
+const ContactEll = ({ id, name, number }) => {
   const [isEdit, setIsEdit] = useState(false);
 
   const [newName, setNewName] = useState(name);
@@ -44,10 +44,10 @@ export const ContactEll = ({ id, name, number }) => {
     }
   };
   return (
-    <ListItem>
+    <ul>
       {isEdit ? (
         <>
-          <TextField
+          <input
             id="outlined-basic"
             label="Name"
             variant="outlined"
@@ -60,7 +60,7 @@ export const ContactEll = ({ id, name, number }) => {
             required
             onChange={onFormChange}
           />
-          <TextField
+          <input
             id="outlined-basic"
             label="Phone number"
             variant="outlined"
@@ -77,31 +77,33 @@ export const ContactEll = ({ id, name, number }) => {
       ) : (
         <p>
           <span>
-            <IoMdPerson />
+            1111
           </span>
           {name}: {number}
         </p>
       )}
 
-      <Button
+      <button
         type="button"
         variant="outlined"
-        startIcon={!isEdit ? <EditIcon /> : <SaveAsIcon />}
+        startIcon={!isEdit ? <p>11111</p> : <p>22222</p>}
         size="small"
         onClick={() => handleEditButton(id)}
       >
         {isEdit ? 'Save' : 'Edit'}
-      </Button>
+      </button>
 
-      <Button
+      <button
         type="button"
         onClick={() => handleDeleteButton(id)}
         variant="outlined"
-        startIcon={<DeleteIcon />}
+        startIcon={<p>11111</p>}
         size="small"
       >
         Delete
-      </Button>
-    </ListItem>
+      </button>
+    </ul>
   );
 };
+
+export default ContactEll;

@@ -6,9 +6,9 @@ import {
   selectVisibleContacts,
 } from 'redux/contacts/selectors';
 import { fetchContacts } from 'redux/contacts/operations';
-import { ContactEll } from 'components/ContactEll/ContactEll';
+import ContactEll from 'components/ContactEll/ContactEll';
 
-export const ContactList = () => {
+const ContactList = () => {
   const dispatch = useDispatch();
   const visibleContacts = useSelector(selectVisibleContacts);
   const contacts = useSelector(selectContacts);
@@ -20,7 +20,7 @@ export const ContactList = () => {
 
   return (
     <>
-      <Wrapper>
+      <div>
         {visibleContacts.length > 0 ? (
           visibleContacts.map(contact => (
             <ContactEll key={contact.id} {...contact} />
@@ -30,7 +30,9 @@ export const ContactList = () => {
         ) : (
           <div>You don't have any contacts yet.</div>
         )}
-      </Wrapper>
+      </div>
     </>
   );
 };
+
+export default ContactList;
